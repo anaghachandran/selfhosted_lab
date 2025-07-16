@@ -1,19 +1,20 @@
+
 name: my-testflow
 on:
-push:
-branches: [ main ]
+  push:
+    branches: [ main ]
 jobs:
   build:
-  runs-on: test
-  steps:
+    runs-on: test
+    steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-        name: validate code
-         run: mvn validate
+      - name: validate code
+        run: mvn validate
 
-        name: build the code
-         run: mvn clean install
+      - name: build the code
+        run: mvn clean install
 
-         name: list the arti
-          run: ls target/
+      - name: list the arti
+        run: ls target/
