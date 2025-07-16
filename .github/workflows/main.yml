@@ -1,0 +1,19 @@
+name: my-testflow
+on:
+push:
+branches: [ main ]
+jobs:
+  build:
+  runs-on: ubuntu-latest
+  steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+        name: validate code
+         run: mvn validate
+
+        name: build the code
+         run: mvn clean install
+
+         name: list the arti
+          run: ls target/
